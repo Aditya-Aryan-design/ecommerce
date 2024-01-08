@@ -13,7 +13,7 @@ function CheckPassword({setCheck}:IProps) {
 
     const userId = useAppSelector(state=>state.user.value.id)
 
-    const [state, formAction] = useFormState(passwordChecker,false)
+    const [state, formAction] = useFormState(passwordChecker,{message:'',token:false})
     
     useEffect(()=>{
         if(state?.token){

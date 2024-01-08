@@ -5,7 +5,7 @@ import { checkPassword } from "./bcrypt";
 import { createTokan } from "./jwt";
 
 
-export default async(prevState:string,formData:FormData)=>{
+export default async(prevState:{message: string,token: boolean|string},formData:FormData)=>{
 'use server'
     try {
         const emailToAtuh = formData.get('email')

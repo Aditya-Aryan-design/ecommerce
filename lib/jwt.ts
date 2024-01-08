@@ -9,7 +9,12 @@ export function createTokan(id:string){
 export function varifyTokan(tokan:string){
     try {
         const res =  jwt.verify(tokan,privatekey)
-        return res.id
+        
+        if(typeof res !== 'string'){
+
+            return res.id
+        }
+        return false
         
     } catch (e) {
         return false

@@ -5,7 +5,7 @@ import { checkPassword } from "./bcrypt";
 
 
 
-export default async(prevState:false, formData:FormData)=>{
+export default async function passwordChecker(prevState:{ message: string; token: boolean;}, formData:FormData){
 'use server'
     try {
 
