@@ -3,7 +3,9 @@ import FeaturedProductsSection from "@/components/FeaturedProduct"
 import TestimonialsSection from "@/components/Testimonials"
 
 
+
 function page() {
+
   return (
     <>
       <HeroSection />

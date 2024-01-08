@@ -4,7 +4,8 @@ import Link from "next/link"
 import { useState, FormEvent } from "react";
 import { FaSearch,FaShoppingCart } from "react-icons/fa";
 import { useRouter } from "next/navigation";
-
+import { useAppSelector } from "@/store/hooks";
+import CreateUserBtn from "./CreateUserBtn";
 
 
 
@@ -20,6 +21,8 @@ function Header() {
 
     router.push(`/search/${slug}`)
   }
+
+  const cartItems = useAppSelector(state=>state.product.value)
   return (
     <header className="bg-zinc-800 p-[2vmin] text-[3vmin] flex justify-between items-center space-x-[5vmin] sm:space-x-[10vmin]">
         <h1 className="text-white text-[3.6vmin] font-bold sm:text-[3vmin]"><Link href='/'>Ecommerce</Link></h1>
@@ -32,9 +35,14 @@ function Header() {
               </button>
         </form>
         
-        <button className="text-white">
+        <Link href='/cartpage' className="text-white flex">
+          {
+          cartItems.length > 0 && <div className="text-white text-[2vmin] bg-red-500 rounded-full px-[1vmin] border-[0.2vmin] border-white relative left-[2vmin] top-[1.4vmin]">{cartItems.length}</div>
+          }
           <FaShoppingCart />
-        </button>
+        </Link>
+
+        <CreateUserBtn />
     </header>
   )
 }
